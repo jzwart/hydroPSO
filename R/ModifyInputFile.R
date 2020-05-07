@@ -39,30 +39,30 @@ ModifyInputFile <- function(
   newvalue.stg <- as.character(round(newvalue, decimals))
 
   L <- nchar(newvalue.stg)
-  
+
 #  message("ParamID  : ", ParamID)
 #  message("filename : ", basename(filename))
 #  message("row      : ", row)
 #  message("new value: ", newvalue.stg)
 #  message("L.trg    : ", L.trg)
 
-  if (L < L.trg) newvalue.stg <- format(newvalue, justify="right", width=L.trg, nsmall=decimals)  
-  
-  if (L > L.trg) {
+  # if (L < L.trg) newvalue.stg <- format(newvalue, justify="right", width=L.trg, nsmall=decimals)
+
+  # if (L > L.trg) {
      #newvalue.stg <- format(newvalue, justify="right", width=L.trg, scientific=TRUE)
      #e.pos <- which(strsplit(newvalue.stg, split=character(0))[[1]] == "e")
      #newvalue.stg <- format(newvalue, justify="right", width=L.trg, scientific=TRUE, digits=e.pos-1)
-     nexp <- 2
-     if (abs(newvalue) >= 1E100) nexp <- 3
-     dig          <- max(decimals-(L - L.trg)-3-nexp, 0) 
-     suppressWarnings(
-       newvalue.stg <- formatC(newvalue, width=L.trg, format="E", digits=dig)
-     )
-  } # IF end 
-   
-  substr(myline, col.ini, col.fin) <- newvalue.stg
+  #    nexp <- 2
+  #    if (abs(newvalue) >= 1E100) nexp <- 3
+  #    dig          <- max(decimals-(L - L.trg)-3-nexp, 0)
+  #    suppressWarnings(
+  #      newvalue.stg <- formatC(newvalue, width=L.trg, format="E", digits=dig)
+  #    )
+  # } # IF end
 
-  lines[row] <- myline
+  # substr(myline, col.ini, col.fin) <- newvalue.stg
+
+  lines[row] <- newvalue.stg
 
   writeLines(lines, filename)
 

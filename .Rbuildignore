@@ -4,3 +4,5 @@ README.md
 _config.yml
 vignettes/hydroPSO_TUWmodel-vignette-full.Rmd
 vignettes/hydroPSO_TUWmodel-vignette-full.pdf
+^.*\.Rproj$
+^\.Rproj\.user$
